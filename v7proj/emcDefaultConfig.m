@@ -29,6 +29,12 @@ function cfg = emcDefaultConfig()
     cfg.Constellation.FPhasing = 1;
     cfg.Constellation.ReuseK = 4;
     cfg.Constellation.ElMask_deg = 5;
+    cfg.Constellation.Mode = 'synthetic';   % synthetic | external
+    cfg.Constellation.ExternalDataFile = '';
+    cfg.Constellation.ExternalFormat = 'auto';  % auto | celestrak-json | celestrak-csv
+    cfg.Constellation.ExternalSourceName = '';
+    cfg.Constellation.ExternalInclinationTarget_deg = 53;
+    cfg.Constellation.ExternalInclinationTolerance_deg = 2.0;
 
     %% Ground
     cfg.Ground = struct();

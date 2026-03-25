@@ -65,6 +65,23 @@ function result = LEO_StarNet_EMC_V7_0_Engineering(varargin)
     Nsat = numPlanes * satsPerPlane;
     reuseK = cfg.Constellation.ReuseK;
     elMaskDeg = cfg.Constellation.ElMask_deg;
+    constellationMode = 'synthetic';
+    externalSatDefs = struct([]);
+    externalMeta = struct('Mode', 'synthetic', 'SourceName', 'synthetic-walker');
+    if isfield(cfg.Constellation, 'Mode') && ~isempty(cfg.Constellation.Mode)
+        constellationMode = lower(strtrim(char(string(cfg.Constellation.Mode))));
+    end
+    if strcmpi(constellationMode, 'external')
+        [externalSatDefs, externalMeta] = emcLoadExternalConstellationSubset( ...
+            cfg.Constellation, Nsat, numPlanes, satsPerPlane, Re, mu);
+        a = externalMeta.SemiMajorAxisMean_m;
+        ecc = externalMeta.EccentricityMean;
+        incDeg = externalMeta.InclinationMean_deg;
+    end
+    fprintf('ConstellMode : %s\n', constellationMode);
+    if strcmpi(constellationMode, 'external')
+        fprintf('ConstellSrc  : %s\n', externalMeta.SourceName);
+    end
 
     T_orbit = 2*pi*sqrt(a^3/mu);
     sim_start = Epoch;
@@ -84,12 +101,26 @@ function result = LEO_StarNet_EMC_V7_0_Engineering(varargin)
     gsGW   = groundStation(sc, cfg.Ground.GWLat, cfg.Ground.GWLon, 'Name', 'Gateway');
 
     fprintf('Step 2: 生成星座：%d x %d = %d satellites ...\n', numPlanes, satsPerPlane, Nsat);
+    if strcmpi(constellationMode, 'external')
+        fprintf('Step 2: 注入外部星座数据 %s | %d satellites ...\n', externalMeta.SourceName, Nsat);
+    end
     satConst = cell(1, Nsat);
     satName  = strings(1, Nsat);
     satPlane = zeros(1, Nsat);
     satSlot  = zeros(1, Nsat);
 
-    idx = 0;
+    if strcmpi(constellationMode, 'external')
+        for idx = 1:Nsat
+            satDef = externalSatDefs(idx);
+            satConst{idx} = satellite(sc, satDef.SemiMajorAxis_m, satDef.Eccentricity, ...
+                satDef.Inclination_deg, satDef.RAAN_deg, satDef.ArgPerigee_deg, ...
+                satDef.TrueAnomaly_deg, 'Name', satDef.Name);
+            satName(idx) = string(satDef.Name);
+            satPlane(idx) = satDef.PlaneIndex;
+            satSlot(idx) = satDef.SlotIndex;
+        end
+    else
+        idx = 0;
     for p = 1:numPlanes
         raan = (p-1) * (360/numPlanes);
         for s = 1:satsPerPlane
@@ -101,6 +132,8 @@ function result = LEO_StarNet_EMC_V7_0_Engineering(varargin)
             satPlane(idx) = p;
             satSlot(idx) = s;
         end
+    end
+
     end
 
     numJam = cfg.Jammer.NumJammers;
@@ -843,6 +876,11 @@ function result = LEO_StarNet_EMC_V7_0_Engineering(varargin)
     result.jamAggWorst = jamAggWorst;
     result.Dashboard = dash;
     result.Viewer = v;
+    result.ConstellationMode = constellationMode;
+    result.ConstellationMeta = externalMeta;
+    if ~isempty(externalSatDefs)
+        result.ExternalSatellites = externalSatDefs;
+    end
 
     if cfg.Output.AutoSaveResultMat
         resultSave = result; %#ok<NASGU>
