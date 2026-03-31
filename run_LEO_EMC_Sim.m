@@ -16,10 +16,16 @@ assignin('base','cfg',cfg);
 
 simOut = sim(model);
 
-errRate = evalin('base','errRate'); %#ok<NASGU>
-disp('仿真完成。工作区变量 errRate = [BER, numErr, numBits]');
-
-% 简单展示
-er = evalin('base','errRate');
-fprintf("BER=%.3e, Errors=%d, Bits=%d\n", er(end,1), er(end,2), er(end,3));
+refBits = simOut.get('refBits');
+rxBits = simOut.get('rxBits');
+refBits = refBits(:);
+rxBits = rxBits(:);
+n = min(numel(refBits), numel(rxBits));
+refBits = refBits(1:n);
+rxBits = rxBits(1:n);
+numErr = sum(refBits ~= rxBits);
+errRate = [numErr / max(n,1), numErr, n];
+assignin('base','errRate',errRate);
+disp('?????????? errRate = [BER, numErr, numBits]');
+fprintf("BER=%.3e, Errors=%d, Bits=%d\n", errRate(1), errRate(2), errRate(3));
 end
