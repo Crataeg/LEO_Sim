@@ -1,0 +1,13 @@
+﻿filename,k,true_label,pred_label,correct,jsr_db_pj_over_ps,isr_db_pi_over_ps,in_training_support_by_jsr
+sim_keyframe_01_k0001_mod_none.png,1,mod,none,0,-49.121336039959544,-12.170342780538927,0
+sim_keyframe_02_k0007_mod_none.png,7,mod,none,0,-48.01945403496185,-9.880692360859179,0
+sim_keyframe_03_k0194_mod_none.png,194,mod,none,0,-50.31235719585487,-13.202603985500371,0
+sim_keyframe_04_k0258_tone_tone.png,258,tone,tone,1,10.878996851297266,-14.608953112688363,1
+sim_keyframe_05_k0260_tone_tone.png,260,tone,tone,1,11.169322900726424,-14.932440471978072,1
+sim_keyframe_06_k0384_tone_none.png,384,tone,none,0,-22.680097099868163,-45.97793723464102,0
+sim_keyframe_07_k0478_tone_tone.png,478,tone,tone,1,-2.5401135498536354,-11.983069730582056,0
+sim_keyframe_08_k0564_tone_tone.png,564,tone,tone,1,-7.029163576775509,-11.244750476593218,0
+sim_keyframe_09_k0565_tone_tone.png,565,tone,tone,1,-7.1191207166034465,-11.107757315748785,0
+sim_keyframe_10_k0575_mod_none.png,575,mod,none,0,-48.00376681653074,-9.853395062473105,0
+sim_keyframe_11_k0654_mod_none.png,654,mod,none,0,-48.22009188776036,-10.008393956672874,0
+sim_keyframe_12_k0656_mod_none.png,656,mod,none,0,-48.0516098927626,-9.626635899558686,0

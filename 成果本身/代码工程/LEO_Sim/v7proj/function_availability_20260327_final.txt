@@ -1,0 +1,9 @@
+satelliteScenario => 6
+ga => 2
+imresize => 2
+im2gray => 2
+im2single => 2
+montage => 2
+trainNetwork => 2
+classificationLayer => 2
+spectrogram => 2

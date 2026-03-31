@@ -1,0 +1,35 @@
+{
+  "stage_label": "V7.0 Engineering Delivery",
+  "project_name": "车载低轨卫星通信系统EMC性能正向设计技术研究 | V7.0",
+  "startup_mode": "default",
+  "worst_target": "e2e",
+  "sample_time_s": 10.0,
+  "orbit_minutes": 109.17,
+  "constellation": {
+    "num_planes": 12,
+    "sats_per_plane": 8,
+    "total_sats": 96
+  },
+  "num_jammers": 6,
+  "worst_case_enabled": true,
+  "classifier_enabled": true,
+  "jam_scale_best_db": 26.741,
+  "jam_info_code": [
+    0.057386,
+    0.017367
+  ],
+  "performance": {
+    "dl_base_mean_thr_mbps": 78.97,
+    "dl_worst_mean_thr_mbps": 75.97,
+    "dl_worst_outage_pct": 4.42,
+    "ul_base_mean_thr_mbps": 75.69,
+    "ul_worst_mean_thr_mbps": 52.62,
+    "ul_worst_outage_pct": 20.73,
+    "e2e_base_mean_thr_mbps": 73.99,
+    "e2e_worst_mean_thr_mbps": 50.57,
+    "e2e_worst_outage_pct": 21.65
+  },
+  "source_result_mat": "D:\\论文卫星\\LEO_Sim\\产出文件夹\\卫星仿真平台工程文件夹_最终版\\LEO_Sim\\LEO_Sim\\LEO_Sim_V7\\v7proj\\outputs_v7\\result_v7.mat",
+  "source_summary_txt": "D:\\论文卫星\\LEO_Sim\\产出文件夹\\卫星仿真平台工程文件夹_最终版\\LEO_Sim\\LEO_Sim\\LEO_Sim_V7\\v7proj\\outputs_v7\\summary_v7.txt",
+  "analysis_note": "Fresh MATLAB rerun was not performed because the matlab executable was not found on this machine during analysis."
+}

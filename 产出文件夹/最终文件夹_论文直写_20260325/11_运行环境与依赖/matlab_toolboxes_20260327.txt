@@ -1,0 +1,16 @@
+﻿MATLAB Version: 9.10.0.1602886 (R2021a)
+5G Toolbox
+Communications Toolbox
+DSP System Toolbox
+Deep Learning HDL Toolbox
+Deep Learning Toolbox
+Fixed-Point Designer
+Global Optimization Toolbox
+Image Processing Toolbox
+MATLAB
+Optimization Toolbox
+Satellite Communications Toolbox
+Signal Processing Toolbox
+Simulink
+UAV Toolbox
+Wireless HDL Toolbox
