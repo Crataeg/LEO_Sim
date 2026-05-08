@@ -1,0 +1,9 @@
+﻿D:\GitHub_Upload\LEO_Sim\.git
+D:\GitHub_Upload\LEO_Sim\collected_original_structure\D___papersat\.git
+D:\GitHub_Upload\LEO_Sim\collected_original_structure\D___papersat\LEO_Sim\.git
+D:\GitHub_Upload\LEO_Sim\collected_original_structure\D___论文卫星\.git
+D:\GitHub_Upload\LEO_Sim\collected_original_structure\D___论文卫星\LEO_Sim\.git
+D:\GitHub_Upload\LEO_Sim\uncertain_related_materials\D___工程总览\专利自有\成果本身\MATLAB卫星仿真工程\.git
+D:\GitHub_Upload\LEO_Sim\uncertain_related_materials\D___工程总览\专利自有\成果本身\代码工程\LEO_Sim\.git
+D:\GitHub_Upload\LEO_Sim\uncertain_related_materials\D___工程总览\论文卫星\成果本身\MATLAB仿真底座\.git
+D:\GitHub_Upload\LEO_Sim\uncertain_related_materials\D___工程总览\论文卫星\成果本身\代码工程\LEO_Sim\.git
